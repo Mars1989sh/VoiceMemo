@@ -21,36 +21,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDr-e6-ETZ">
-                                <rect key="frame" x="87" y="233.5" width="200" height="200"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDr-e6-ETZ">
+                                <rect key="frame" x="87" y="343.5" width="200" height="200"/>
                                 <color key="backgroundColor" red="0.81568627449999997" green="0.93333333330000001" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="R4C-TM-ITg"/>
-                                    <constraint firstAttribute="width" constant="200" id="Rlo-cy-BvB"/>
+                                    <constraint firstAttribute="width" constant="200" id="482-el-wPC"/>
+                                    <constraint firstAttribute="height" constant="200" id="Eic-2H-su6"/>
                                 </constraints>
-                                <state key="normal" title="录音"/>
+                                <state key="normal" title="按住录音"/>
                                 <connections>
+                                    <action selector="recordDownAction:" destination="BYZ-38-t0r" eventType="touchDown" id="ayN-S2-EMp"/>
+                                    <action selector="recordOutsideAction:" destination="BYZ-38-t0r" eventType="touchDragOutside" id="hi3-dv-dnb"/>
                                     <action selector="recordUpInsideAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tyh-Gg-aD1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzF-js-JkP">
-                                <rect key="frame" x="164" y="86" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="68L-YA-p0u"/>
-                                    <constraint firstAttribute="height" constant="30" id="Pd9-Dd-0U4"/>
-                                </constraints>
-                                <state key="normal" title="play"/>
+                                <rect key="frame" x="87.5" y="123.5" width="200" height="200"/>
+                                <color key="backgroundColor" red="0.32734802958395892" green="0.94553061548223349" blue="0.18716462079738719" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="播放"/>
                                 <connections>
                                     <action selector="playVoice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qlO-6l-WUb"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请打开录音权限" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHF-ET-tWX">
+                                <rect key="frame" x="97" y="626" width="181" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="JWT-cr-cjj"/>
+                                    <constraint firstAttribute="width" constant="181" id="wfi-J6-4dJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dzF-js-JkP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Lb-oO-7Xq"/>
-                            <constraint firstItem="dzF-js-JkP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="22" id="LbU-Hm-o5r"/>
-                            <constraint firstItem="cDr-e6-ETZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="So6-3v-2Ol"/>
-                            <constraint firstItem="cDr-e6-ETZ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="yHe-Bc-DKl"/>
+                            <constraint firstItem="cDr-e6-ETZ" firstAttribute="height" secondItem="dzF-js-JkP" secondAttribute="height" id="7hZ-ZM-OaL"/>
+                            <constraint firstItem="DHF-ET-tWX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Cdl-s8-Cbd"/>
+                            <constraint firstItem="cDr-e6-ETZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HqU-yl-Drc"/>
+                            <constraint firstItem="cDr-e6-ETZ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="110" id="Ijr-wu-Vn6"/>
+                            <constraint firstItem="cDr-e6-ETZ" firstAttribute="width" secondItem="dzF-js-JkP" secondAttribute="width" id="hX9-gK-Alp"/>
+                            <constraint firstItem="dzF-js-JkP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kZK-eT-cjx"/>
+                            <constraint firstItem="dzF-js-JkP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-110" id="toS-nc-70c"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="DHF-ET-tWX" secondAttribute="bottom" constant="20" id="xNF-V4-fTa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bsA-RI-0UT">
@@ -61,6 +74,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="noticeLabel" destination="DHF-ET-tWX" id="HDr-dQ-V6b"/>
                         <outlet property="playButton" destination="dzF-js-JkP" id="ngA-yt-rRR"/>
                         <outlet property="recordButton" destination="cDr-e6-ETZ" id="j60-k6-Vau"/>
                     </connections>

@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     
+    @IBOutlet weak var noticeLabel: UILabel!
     var audioRecorder:AVAudioRecorder?
     var audioPlayer:AVAudioPlayer?
     var url:URL?
@@ -29,6 +30,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         playButton.isHidden = true
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        AVAudioSession.sharedInstance().requestRecordPermission { (Bool) in
+            DispatchQueue.main.async {
+                if Bool == false {
+                    self.recordButton.isHidden = true
+                    self.noticeLabel.isHidden = false
+                } else {
+                    self.recordButton.isHidden = false
+                    self.noticeLabel.isHidden = true
+                }
+            }
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
