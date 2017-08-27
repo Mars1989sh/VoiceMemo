@@ -14,6 +14,8 @@
 		B04E45241F52B33B00E83C9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B04E45221F52B33B00E83C9C /* LaunchScreen.storyboard */; };
 		B04E452F1F52B33B00E83C9C /* VoiceMemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E452E1F52B33B00E83C9C /* VoiceMemoTests.swift */; };
 		B04E453A1F52B33B00E83C9C /* VoiceMemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E45391F52B33B00E83C9C /* VoiceMemoUITests.swift */; };
+		B04E45481F52E81600E83C9C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E45471F52E81600E83C9C /* TableViewController.swift */; };
+		B04E454A1F52FA0C00E83C9C /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E45491F52FA0C00E83C9C /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		B04E45351F52B33B00E83C9C /* VoiceMemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoiceMemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B04E45391F52B33B00E83C9C /* VoiceMemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceMemoUITests.swift; sourceTree = "<group>"; };
 		B04E453B1F52B33B00E83C9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B04E45471F52E81600E83C9C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		B04E45491F52FA0C00E83C9C /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 			children = (
 				B04E45191F52B33B00E83C9C /* AppDelegate.swift */,
 				B04E451B1F52B33B00E83C9C /* ViewController.swift */,
+				B04E45471F52E81600E83C9C /* TableViewController.swift */,
+				B04E45491F52FA0C00E83C9C /* TableViewCell.swift */,
 				B04E451D1F52B33B00E83C9C /* Main.storyboard */,
 				B04E45201F52B33B00E83C9C /* Assets.xcassets */,
 				B04E45221F52B33B00E83C9C /* LaunchScreen.storyboard */,
@@ -261,6 +267,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B04E451C1F52B33B00E83C9C /* ViewController.swift in Sources */,
+				B04E454A1F52FA0C00E83C9C /* TableViewCell.swift in Sources */,
+				B04E45481F52E81600E83C9C /* TableViewController.swift in Sources */,
 				B04E451A1F52B33B00E83C9C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,6 +516,7 @@
 				B04E45401F52B33B00E83C9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B04E45411F52B33B00E83C9C /* Build configuration list for PBXNativeTarget "VoiceMemoTests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +525,7 @@
 				B04E45431F52B33B00E83C9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B04E45441F52B33B00E83C9C /* Build configuration list for PBXNativeTarget "VoiceMemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +534,7 @@
 				B04E45461F52B33B00E83C9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

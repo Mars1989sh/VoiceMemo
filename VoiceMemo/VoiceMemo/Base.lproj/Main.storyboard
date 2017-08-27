@@ -72,19 +72,60 @@
         <!--Table View Controller-->
         <scene sceneID="eXx-a0-m45">
             <objects>
-                <tableViewController id="sX5-aK-s9j" sceneMemberID="viewController">
+                <tableViewController id="sX5-aK-s9j" customClass="TableViewController" customModule="VoiceMemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="8cf-mB-tpT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="b6n-UI-qZy">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="b6n-UI-qZy" customClass="TableViewCell" customModule="VoiceMemo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b6n-UI-qZy" id="Ysd-Vz-YUa">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TbW-RY-u3d">
+                                            <rect key="frame" x="10" y="11" width="20" height="20"/>
+                                            <color key="backgroundColor" red="0.34620563757949496" green="1" blue="0.19794665316250037" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="BHm-mP-mPo"/>
+                                                <constraint firstAttribute="width" constant="20" id="PgH-Vp-01c"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeO-rI-dLY">
+                                            <rect key="frame" x="38" y="11" width="265" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tiJ-Sa-kJp">
+                                            <rect key="frame" x="311" y="0.0" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="7ny-Ez-ycT"/>
+                                            </constraints>
+                                            <state key="normal" title="PLAY"/>
+                                            <connections>
+                                                <action selector="playAction:" destination="b6n-UI-qZy" eventType="touchUpInside" id="HuL-fu-vok"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="jeO-rI-dLY" firstAttribute="leading" secondItem="TbW-RY-u3d" secondAttribute="trailing" constant="8" id="24B-QZ-kGY"/>
+                                        <constraint firstItem="jeO-rI-dLY" firstAttribute="centerY" secondItem="Ysd-Vz-YUa" secondAttribute="centerY" id="2Zg-wS-vki"/>
+                                        <constraint firstItem="TbW-RY-u3d" firstAttribute="leading" secondItem="Ysd-Vz-YUa" secondAttribute="leading" constant="10" id="6Fd-ON-1EO"/>
+                                        <constraint firstAttribute="bottom" secondItem="tiJ-Sa-kJp" secondAttribute="bottom" id="FFr-62-Ots"/>
+                                        <constraint firstAttribute="trailing" secondItem="tiJ-Sa-kJp" secondAttribute="trailing" constant="20" id="L5P-R4-DJj"/>
+                                        <constraint firstItem="TbW-RY-u3d" firstAttribute="centerY" secondItem="Ysd-Vz-YUa" secondAttribute="centerY" id="VWH-1w-mEd"/>
+                                        <constraint firstItem="tiJ-Sa-kJp" firstAttribute="top" secondItem="Ysd-Vz-YUa" secondAttribute="top" id="aZe-uD-Xmn"/>
+                                        <constraint firstItem="tiJ-Sa-kJp" firstAttribute="leading" secondItem="jeO-rI-dLY" secondAttribute="trailing" constant="8" id="tCG-ch-oKr"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="playButton" destination="tiJ-Sa-kJp" id="gE3-6Z-0BI"/>
+                                    <outlet property="statusView" destination="TbW-RY-u3d" id="WO0-Qx-v6C"/>
+                                    <outlet property="titleLabel" destination="jeO-rI-dLY" id="BnH-nN-dMN"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -96,7 +137,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dXZ-Ee-anY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1308" y="360"/>
+            <point key="canvasLocation" x="1308" y="359.37031484257875"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="h7x-js-Jor">
