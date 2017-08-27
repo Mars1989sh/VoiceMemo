@@ -22,6 +22,10 @@ class TableViewController: UITableViewController {
         
         childrenPath = fileManager.subpaths(atPath: basePath!)
         print(childrenPath!)
+        
+        if(childrenPath?.count==0){
+            self.title = "没有录音文件"
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,6 +46,7 @@ class TableViewController: UITableViewController {
             audioPlayer?.volume = 1.0
             audioPlayer?.play()
             audioPlayer?.numberOfLoops = 0
+            audioPlayer?.delegate = self
         } catch let err {
             print("播放失败:\(err.localizedDescription)")
         }
@@ -131,5 +136,13 @@ class TableViewController: UITableViewController {
 extension  TableViewController: TableViewCellDelegate {
     func playVoice(index: Int) {
         startVoice(index: index)
+    }
+}
+
+extension  TableViewController: AVAudioPlayerDelegate {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        if (playIndex != nil) {
+            endVoice(index: playIndex!)
+        }
     }
 }
