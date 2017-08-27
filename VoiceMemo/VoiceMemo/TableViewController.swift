@@ -23,8 +23,14 @@ class TableViewController: UITableViewController {
         childrenPath = fileManager.subpaths(atPath: basePath!)
         print(childrenPath!)
         
-        if(childrenPath?.count==0){
+        if (childrenPath == nil) {
             self.title = "没有录音文件"
+        } else {
+            if(childrenPath?.count==0){
+                self.title = "没有录音文件"
+            } else {
+                childrenPath = childrenPath?.sorted(by: >)
+            }
         }
     }
 
