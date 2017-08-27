@@ -145,7 +145,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func recordDownAction(_ sender: Any) {
-        print("recordDownAction");
         playButton.isHidden = true
         if (audioPlayer != nil) {
             pause()
@@ -154,13 +153,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func recordOutsideAction(_ sender: Any) {
-        print("recordOutsideAction");
         playButton.isHidden = false
         stopRecord()
     }
 
     @IBAction func recordUpInsideAction(_ sender: Any) {
-        print("recordUpInsideAction");
         playButton.isHidden = false
         stopRecord()
     }

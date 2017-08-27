@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDr-e6-ETZ">
+                            <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDr-e6-ETZ">
                                 <rect key="frame" x="87" y="343.5" width="200" height="200"/>
                                 <color key="backgroundColor" red="0.81568627449999997" green="0.93333333330000001" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -29,16 +29,26 @@
                                     <constraint firstAttribute="height" constant="200" id="Eic-2H-su6"/>
                                 </constraints>
                                 <state key="normal" title="按住录音"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="recordDownAction:" destination="BYZ-38-t0r" eventType="touchDown" id="ayN-S2-EMp"/>
                                     <action selector="recordOutsideAction:" destination="BYZ-38-t0r" eventType="touchDragOutside" id="hi3-dv-dnb"/>
                                     <action selector="recordUpInsideAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tyh-Gg-aD1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzF-js-JkP">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzF-js-JkP">
                                 <rect key="frame" x="87.5" y="123.5" width="200" height="200"/>
                                 <color key="backgroundColor" red="0.32734802958395892" green="0.94553061548223349" blue="0.18716462079738719" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="播放"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="playVoice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qlO-6l-WUb"/>
                                 </connections>
@@ -99,13 +109,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TbW-RY-u3d">
+                                        <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TbW-RY-u3d">
                                             <rect key="frame" x="10" y="11" width="20" height="20"/>
                                             <color key="backgroundColor" red="0.34620563757949496" green="1" blue="0.19794665316250037" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="BHm-mP-mPo"/>
                                                 <constraint firstAttribute="width" constant="20" id="PgH-Vp-01c"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeO-rI-dLY">
                                             <rect key="frame" x="38" y="11" width="265" height="21"/>

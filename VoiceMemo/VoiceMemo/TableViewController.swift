@@ -21,7 +21,6 @@ class TableViewController: UITableViewController {
         let basePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first
         
         childrenPath = fileManager.subpaths(atPath: basePath!)
-        print(childrenPath!)
         
         if (childrenPath == nil) {
             self.title = "没有录音文件"
