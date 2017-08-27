@@ -27,7 +27,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        playButton.isHidden = true
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if (audioPlayer != nil) {
+            endVoice()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,6 +100,7 @@ class ViewController: UIViewController {
             audioPlayer?.volume = 1.0
             audioPlayer?.play()
             audioPlayer?.numberOfLoops = 0
+            audioPlayer?.delegate = self
         } catch let err {
             print("播放失败:\(err.localizedDescription)")
         }
@@ -101,38 +110,62 @@ class ViewController: UIViewController {
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: audioRecorder!.url)
             audioPlayer?.pause()
+            
         } catch let err {
             print("暂停失败:\(err.localizedDescription)")
         }
     }
     
+    func startVoice () {
+        playButton.setTitle("暂停",for: .normal)
+        self.title = "播放中..."
+        play()
+    }
+    
+    func endVoice () {
+        playButton.setTitle("播放",for: .normal)
+        self.title = ""
+        pause()
+    }
+    
+    @IBAction func recordDownAction(_ sender: Any) {
+        print("recordDownAction");
+        playButton.isHidden = true
+        if (audioPlayer != nil) {
+            pause()
+        }
+        beginRecord()
+    }
+    
+    @IBAction func recordOutsideAction(_ sender: Any) {
+        print("recordOutsideAction");
+        playButton.isHidden = false
+        stopRecord()
+    }
 
     @IBAction func recordUpInsideAction(_ sender: Any) {
-        
-        if audioRecorder != nil {
-            if (audioRecorder?.isRecording)!{
-                playButton.isHidden = false
-                stopRecord()
-            } else {
-                playButton.isHidden = true
-                beginRecord()
-            }
-        } else {
-            playButton.isHidden = true
-            beginRecord()
-        }
+        print("recordUpInsideAction");
+        playButton.isHidden = false
+        stopRecord()
     }
 
     @IBAction func playVoice(_ sender: Any) {
         if audioPlayer != nil {
             if (audioPlayer?.isPlaying == true){
-                pause()
+                endVoice()
             }else{
-                play()
+                startVoice()
             }
         } else {
-            play()
+            startVoice()
         }
+    }
+}
+
+
+extension  ViewController: AVAudioPlayerDelegate {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        endVoice()
     }
 }
 
