@@ -29,22 +29,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         playButton.isHidden = true
-        // Do any additional setup after loading the view, typically from a nib.
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(refreshRecordStatus), name: .UIApplicationDidBecomeActive, object: nil)
+        refreshRecordStatus()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        AVAudioSession.sharedInstance().requestRecordPermission { (Bool) in
-            DispatchQueue.main.async {
-                if Bool == false {
-                    self.recordButton.isHidden = true
-                    self.noticeLabel.isHidden = false
-                } else {
-                    self.recordButton.isHidden = false
-                    self.noticeLabel.isHidden = true
-                }
-            }
-        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -57,6 +49,25 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
+    }
+    
+    
+    func refreshRecordStatus() {
+        AVAudioSession.sharedInstance().requestRecordPermission { (Bool) in
+            DispatchQueue.main.async {
+                if Bool == false {
+                    self.recordButton.isHidden = true
+                    self.noticeLabel.isHidden = false
+                } else {
+                    self.recordButton.isHidden = false
+                    self.noticeLabel.isHidden = true
+                }
+            }
+        }
     }
     
     func directoryURL() -> URL? {
